@@ -2,14 +2,15 @@ package com.itor.example.models;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.AnyDiscriminatorImplicitValues;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
-@Table
 public class Author {
 
     @Id
@@ -52,6 +53,7 @@ public class Author {
             updatable = false,
             nullable = false
     )
+    @CreationTimestamp
     private LocalDateTime createdAt;
 
     @Column(
