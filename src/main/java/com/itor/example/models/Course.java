@@ -24,5 +24,14 @@ public class Course {
     private String description;
 
     @ManyToMany
+    @JoinTable(
+            name = "authors_courses",
+            joinColumns = {
+                    @JoinColumn(name = "course_id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "author_id")
+            }
+    )
     private List<Author> authors;
 }

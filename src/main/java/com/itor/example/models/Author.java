@@ -50,6 +50,6 @@ public class Author {
 
     private int age;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "authors")
     private List<Course> courses;
 }
