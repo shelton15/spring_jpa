@@ -1,7 +1,9 @@
 package com.itor.example;
 
 import com.itor.example.models.Author;
+import com.itor.example.models.Video;
 import com.itor.example.repositories.AuthorRepository;
+import com.itor.example.repositories.VideoRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,17 +19,23 @@ public class ExampleApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(
 
-			AuthorRepository repository
+			AuthorRepository repository,
+			VideoRepository videoRepository
 	) {
 		return args -> {
 
-			var author = Author.builder()
+			/*var author = Author.builder()
 					.firstName("John")
 					.lastName("Doe")
 					.age(27)
 					.email("shelt@gmail.com")
 					.build();
-			repository.save(author);
+			repository.save(author);*/
+			var video = Video.builder()
+					.name("abc")
+					.length(5)
+					.build();
+			videoRepository.save(video);
 		};
 	}
 
