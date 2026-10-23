@@ -2,37 +2,19 @@ package com.itor.example.models;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 @Entity
-public class Author {
-
-    @Id
-    @GeneratedValue
-            /*(
-            strategy = GenerationType.TABLE,
-            generator = "author_id_gen"
-    )
-    @SequenceGenerator(
-            name = "author_sequence",
-            sequenceName = "author_sequence",
-            allocationSize = 1
-    )
-    @TableGenerator(
-            name = "author_id_gen",
-            table = "id_generator",
-            pkColumnName = "id_name",
-            pkColumnValue = "id_value",
-            allocationSize = 1
-    )*/
-    private Integer id;
+public class Author extends BaseEntity {
 
     @Column(
             name = "f_name",
