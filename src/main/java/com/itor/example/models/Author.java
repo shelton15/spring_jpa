@@ -1,13 +1,24 @@
 package com.itor.example.models;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.AnyDiscriminatorImplicitValues;
 
-@NoArgsConstructor
 @Data
+@NoArgsConstructor
 @Entity
 public class Author {
 
+    @Id
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "author_sequence"
+    )
+    @SequenceGenerator(
+            name = "author_sequence",
+            sequenceName = "author_sequence",
+            allocationSize = 1
+    )
     private Integer id;
 
     private String firstName;
