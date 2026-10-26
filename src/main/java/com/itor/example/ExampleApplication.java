@@ -1,5 +1,6 @@
 package com.itor.example;
 
+import com.github.javafaker.Faker;
 import com.itor.example.models.Author;
 import com.itor.example.models.Video;
 import com.itor.example.repositories.AuthorRepository;
@@ -24,18 +25,23 @@ public class ExampleApplication {
 	) {
 		return args -> {
 
-			/*var author = Author.builder()
-					.firstName("John")
-					.lastName("Doe")
-					.age(27)
-					.email("shelt@gmail.com")
-					.build();
-			repository.save(author);*/
-			var video = Video.builder()
+			for (int i = 0; i < 50; i++) {
+
+				Faker faker = new Faker();
+				var author = Author.builder()
+						.firstName(faker.name().firstName())
+						.lastName(faker.name().lastName())
+						.age(faker.number().numberBetween(19, 50))
+						.email("shelton" + i + "@gmail.com")
+						.build();
+				repository.save(author);
+			}
+
+			/*var video = Video.builder()
 					.name("abc")
 					.length(5)
 					.build();
-			videoRepository.save(video);
+			videoRepository.save(video);*/
 		};
 	}
 
