@@ -45,7 +45,8 @@ public class ExampleApplication {
 					.email("sheltoniyassa@gmail.com")
 					.build();
 //			repository.save(author);
-			repository.updateAuthor(22,1);
+//			repository.updateAuthor(22,1);
+			repository.updateAllAuthorsAges(99);
 			//update Author a set a.age = 22 where a.id = 1
 		};
 	}

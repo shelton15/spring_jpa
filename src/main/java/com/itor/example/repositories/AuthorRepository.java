@@ -11,13 +11,17 @@ import java.util.List;
 public interface AuthorRepository extends JpaRepository<Author, Integer> {
 
     //update Author a set a.age = 22 where a.id = 1
-    @Modifying
     @Transactional
+    @Modifying
     @Query("update Author a set a.age = :age where a.id = :id")
     int updateAuthor(int age, int id);
 
-    //select * from author where first_name = 'shelton'
+    @Modifying
+    @Transactional
+    @Query("update Author a set a.age = :age")
+    void updateAllAuthorsAges(int age);
 
+    //select * from author where first_name = 'shelton'
     List<Author> findAllByFirstName(String name);
 
     //select * from author where first_name like 'shel'
