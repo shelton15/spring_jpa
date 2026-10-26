@@ -1,5 +1,6 @@
 package com.itor.example.models.embedded;
 
+import jakarta.persistence.Embedded;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -18,6 +19,9 @@ public class Order {
 
     @EmbeddedId
     private OrderId orderId;
+
+    @Embedded
+    private Address address;
 
     private String orderInfo;
 
