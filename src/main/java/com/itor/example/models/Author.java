@@ -14,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @SuperBuilder
 @Entity
+@NamedQuery()
 public class Author extends BaseEntity {
 
     @Column(
