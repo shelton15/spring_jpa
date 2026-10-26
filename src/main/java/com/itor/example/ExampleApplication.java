@@ -37,18 +37,21 @@ public class ExampleApplication {
 				repository.save(author);
 			}
 
-			var author = Author.builder()
+			/*var author = Author.builder()
 					.id(1)
 					.firstName("Shelton")
 					.lastName("Itor")
 					.age(25)
 					.email("sheltoniyassa@gmail.com")
-					.build();
+					.build();*/
 //			repository.save(author);
 //			repository.updateAuthor(22,1);
-			repository.updateAllAuthorsAges(99);
+//			repository.updateAllAuthorsAges(99);
 			//update Author a set a.age = 22 where a.id = 1
+			repository.findByNamedQuery(60)
+					.forEach(System.out::println);
 		};
+
 	}
 
 }
