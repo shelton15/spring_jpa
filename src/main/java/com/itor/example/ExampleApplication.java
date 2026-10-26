@@ -16,7 +16,7 @@ public class ExampleApplication {
 		SpringApplication.run(ExampleApplication.class, args);
 	}
 
-//	@Bean
+	@Bean
 	public CommandLineRunner commandLineRunner(
 
 			AuthorRepository repository,
