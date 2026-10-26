@@ -32,16 +32,19 @@ public class ExampleApplication {
 						.firstName(faker.name().firstName())
 						.lastName(faker.name().lastName())
 						.age(faker.number().numberBetween(19, 50))
-						.email("shelton" + i + "@gmail.com")
+						.email(faker.name().username() + "@gmail.com")
 						.build();
 				repository.save(author);
 			}
 
-			/*var video = Video.builder()
-					.name("abc")
-					.length(5)
+			var author = Author.builder()
+					.id(1)
+					.firstName("Shelton")
+					.lastName("Itor")
+					.age(25)
+					.email("sheltoniyassa@gmail.com")
 					.build();
-			videoRepository.save(video);*/
+			repository.save(author);
 		};
 	}
 
